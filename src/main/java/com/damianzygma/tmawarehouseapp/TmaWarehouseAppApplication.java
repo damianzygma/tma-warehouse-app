@@ -1,0 +1,13 @@
+package com.damianzygma.tmawarehouseapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TmaWarehouseAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TmaWarehouseAppApplication.class, args);
+	}
+
+}
