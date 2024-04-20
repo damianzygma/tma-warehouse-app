@@ -33,7 +33,7 @@ public class Item {
     @Column(nullable = false)
     private Double price;
 
-    private String Status;
+    private String status;
 
     @OneToOne
     @JoinColumn(name = "storage_id")
