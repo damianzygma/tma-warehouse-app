@@ -24,19 +24,14 @@ public class Request {
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @ManyToOne
-    @JoinColumn(name = "unit_id")
-    private Unit unit;
-
     private Long quantity;
-
-    private Double price;
 
     @ManyToOne
     @JoinColumn(name = "status_id")
     private Status status;
 
     private String comment;
+
 
 
 }

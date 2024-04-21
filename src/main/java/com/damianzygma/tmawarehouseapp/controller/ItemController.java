@@ -18,11 +18,11 @@ public class ItemController {
     }
 
 
-    @GetMapping("/admin/home")
+    @GetMapping("/admin/items")
     public String items(Model model){
         List<ItemDto> items = itemService.findAllItems();
         model.addAttribute("items", items);
-        return "/admin/home";
+        return "/admin/items";
     }
 
 }

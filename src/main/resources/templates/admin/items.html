@@ -13,6 +13,7 @@
 <div th:replace="~{admin/header :: navbar}"></div>
 <!--navbar - end-->
 
+<br />
 
 <div class="container">
     <div class="row">
@@ -30,23 +31,23 @@
         <th style="width:10%">Price without VAT (UAH)</th>
         <th style="width:10%">Status</th>
         <th style="width:10%">Storage location</th>
-        <th style="width:15%">Contact person</th>
-        <th style="width:10%">Actions</th>
+        <th style="width:10%">Contact person</th>
+        <th style="width:15%">Actions</th>
         </thead>
         <tbody>
         <tr th:each = "item : ${items}">
             <td th:text="${item.id}">1</td>
-            <td th:text="${item.name}">item name</td>
-            <td th:text="${item.itemGroup.name}">item group</td>
+            <td th:text="${item.name}">T-shirts</td>
+            <td th:text="${item.itemGroup.name}">Fashion</td>
             <td th:text="${item.unit.name}">pcs</td>
             <td th:text="${item.quantity}">3</td>
-            <td th:text="${item.price}">400.00</td>
+            <td th:text="${item.price}">1000</td>
             <td th:text="${item.status}">New</td>
             <td th:text="${item.storage.name}">Warsaw</td>
             <td th:text="${item.contact}">Jan Kowalski</td>
             <td>
-                <a th:href="@{/admin/home/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/admin/home/{itemId}/delete(itemId=${item.id})}" class="btn btn-danger">Remove</a>
+                <a th:href="@{/admin/items/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/admin/items/{itemId}/delete(itemId=${item.id})}" class="btn btn-danger">Remove</a>
             </td>
         </tr>
         </tbody>

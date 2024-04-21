@@ -44,8 +44,7 @@ public class Item {
 
     private String contact;
 
-    @OneToMany
-    @JoinColumn(name = "item_id")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE)
     private List<Request> requests = new ArrayList<>();
 
 
