@@ -1,6 +1,6 @@
 package com.damianzygma.tmawarehouseapp.dto;
 
-import com.damianzygma.tmawarehouseapp.entity.Group;
+import com.damianzygma.tmawarehouseapp.entity.ItemGroup;
 import com.damianzygma.tmawarehouseapp.entity.Storage;
 import com.damianzygma.tmawarehouseapp.entity.Unit;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,7 @@ public class ItemDto {
 
     private Long id;
     private String name;
-    private Group group;
+    private ItemGroup itemGroup;
     private Unit unit;
     private Long quantity;
     private Double price;

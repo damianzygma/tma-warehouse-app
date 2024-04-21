@@ -37,16 +37,16 @@
         <tr th:each = "item : ${items}">
             <td th:text="${item.id}">1</td>
             <td th:text="${item.name}">item name</td>
-            <td th:text="${item.group}">item group</td>
-            <td th:text="${item.unit}">5</td>
+            <td th:text="${item.itemGroup.name}">item group</td>
+            <td th:text="${item.unit.name}">pcs</td>
             <td th:text="${item.quantity}">3</td>
             <td th:text="${item.price}">400.00</td>
             <td th:text="${item.status}">New</td>
-            <td th:text="${item.storage}">Warsaw</td>
+            <td th:text="${item.storage.name}">Warsaw</td>
             <td th:text="${item.contact}">Jan Kowalski</td>
             <td>
-                <a th:href="@{/admin/posts/{postId}/edit(postId=${post.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/admin/posts/{postId}/delete(postId=${post.id})}" class="btn btn-danger">Remove</a>
+                <a th:href="@{/admin/home/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/admin/home/{itemId}/delete(itemId=${item.id})}" class="btn btn-danger">Remove</a>
             </td>
         </tr>
         </tbody>

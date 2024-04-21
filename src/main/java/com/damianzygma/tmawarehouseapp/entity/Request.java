@@ -20,11 +20,11 @@ public class Request {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
@@ -32,7 +32,7 @@ public class Request {
 
     private Double price;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "status_id")
     private Status status;
 

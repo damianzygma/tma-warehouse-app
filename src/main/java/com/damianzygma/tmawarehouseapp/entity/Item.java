@@ -3,6 +3,9 @@ package com.damianzygma.tmawarehouseapp.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,11 +22,11 @@ public class Item {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "group_id")
-    private Group group;
+    @ManyToOne
+    @JoinColumn(name = "itemgroup_id")
+    private ItemGroup itemGroup;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
@@ -35,11 +38,15 @@ public class Item {
 
     private String status;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "storage_id")
     private Storage storage;
 
     private String contact;
+
+    @OneToMany
+    @JoinColumn(name = "item_id")
+    private List<Request> requests = new ArrayList<>();
 
 
 }
