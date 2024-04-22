@@ -43,7 +43,7 @@
             <td th:text="${item.quantity}">3</td>
             <td th:text="${item.price}">1000</td>
             <td th:text="${item.status}">New</td>
-            <td th:text="${item.storage.name}">Warsaw</td>
+            <td th:text="${item.storage}">Warsaw</td>
             <td th:text="${item.contact}">Jan Kowalski</td>
             <td>
                 <a th:href="@{/admin/items/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>

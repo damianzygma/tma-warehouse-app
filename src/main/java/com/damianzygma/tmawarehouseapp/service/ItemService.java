@@ -7,4 +7,7 @@ import java.util.List;
 public interface ItemService {
 
     List<ItemDto> findAllItems();
+
+    void createItem(ItemDto itemDto);
+
 }

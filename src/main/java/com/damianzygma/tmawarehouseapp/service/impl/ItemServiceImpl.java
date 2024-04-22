@@ -25,4 +25,11 @@ public class ItemServiceImpl implements ItemService {
         return items.stream().map((item) -> ItemMapper.mapToItemDto(item))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void createItem(ItemDto itemDto) {
+        Item item = ItemMapper.mapToItem(itemDto);
+        itemRepository.save(item);
+
+    }
 }

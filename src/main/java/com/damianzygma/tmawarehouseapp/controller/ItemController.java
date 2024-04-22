@@ -9,6 +9,8 @@ import com.damianzygma.tmawarehouseapp.service.UnitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -44,5 +46,12 @@ public class ItemController {
         model.addAttribute("itemGroups", itemGroups);
         return "admin/create_item";
     }
+
+    @PostMapping("/admin/items")
+    public String createItem(@ModelAttribute ItemDto itemDto){
+        itemService.createItem(itemDto);
+        return "redirect:/admin/items";
+    }
+
 
 }

@@ -38,9 +38,7 @@ public class Item {
 
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "storage_id")
-    private Storage storage;
+    private String storage;
 
     private String contact;
 
