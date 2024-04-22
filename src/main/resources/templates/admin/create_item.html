@@ -21,7 +21,7 @@
                 <h2 class="text-center"> Create New Item </h2>
             </div>
             <div class="card-body">
-                <form role="form" method="post" th:action="@{/admin/item}" th:object="${item}">
+                <form role="form" method="post" th:action="@{/admin/items}" th:object="${item}">
                     <div class="mb-3">
                         <label class="form-label"> Item Name </label>
                         <input
@@ -35,27 +35,81 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Item Name </label>
+                        <label class="form-label"> Item Group </label>
+                        <select class="form-select" th:field="*{itemGroup}">
+                            <option value="0">Select item group</option>
+                            <option th:each="itemGroup : ${itemGroups}" th:value="${itemGroup.id}" th:text="${itemGroup.id}+' : '+${itemGroup.name}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Unit of measurment </label>
+                        <select class="form-select" th:field="*{unit}">
+                            <option value="0">Select unit</option>
+                            <option th:each="unit : ${units}" th:value="${unit.id}" th:text="${unit.id}+' : '+${unit.name}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Quantity </label>
                         <input
                                 type="text"
                                 class="form-control"
-                                id="name"
-                                placeholder="Enter item name"
-                                name="name"
-                                th:field="*{name}"
+                                id="quantity"
+                                placeholder="Enter quantity"
+                                name="quantity"
+                                th:field="*{quantity}"
                         />
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Item Name </label>
+                        <label class="form-label"> Price without VAT (UAH) </label>
                         <input
                                 type="text"
                                 class="form-control"
-                                id="name"
-                                placeholder="Enter item name"
-                                name="name"
-                                th:field="*{name}"
+                                id="price"
+                                placeholder="Enter price"
+                                name="price"
+                                th:field="*{price}"
                         />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Status </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="status"
+                                placeholder="Enter status"
+                                name="status"
+                                th:field="*{status}"
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Storage Location </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="storage"
+                                placeholder="Enter storage location"
+                                name="storage"
+                                th:field="*{storage}"
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Contact person </label>
+                        <textarea
+                                type="text"
+                                class="form-control"
+                                id="contact"
+                                placeholder="Enter contact person"
+                                rows="3"
+                                name="contact"
+                                th:field="*{contact}"
+                        >
+                        </textarea>
                     </div>
 
 
