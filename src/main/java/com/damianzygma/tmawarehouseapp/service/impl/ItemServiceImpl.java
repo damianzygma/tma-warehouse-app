@@ -34,8 +34,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemDto findItemById(Long id) {
-        Item item = itemRepository.findById(id).get();
+    public ItemDto findItemById(Long itemId) {
+        Item item = itemRepository.findById(itemId).get();
         return ItemMapper.mapToItemDto(item);
     }
 
@@ -43,5 +43,10 @@ public class ItemServiceImpl implements ItemService {
     public void updateItem(ItemDto itemDto) {
         Item item = ItemMapper.mapToItem(itemDto);
         itemRepository.save(item);
+    }
+
+    @Override
+    public void deleteItemById(Long itemId) {
+        itemRepository.deleteById(itemId);
     }
 }

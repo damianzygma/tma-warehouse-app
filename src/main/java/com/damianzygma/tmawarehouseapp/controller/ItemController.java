@@ -75,6 +75,13 @@ public class ItemController {
         item.setId(itemId);
         itemService.updateItem(item);
         return "redirect:/admin/items";
+    }
+
+
+    @GetMapping("/admin/items/{itemId}/delete")
+    public String deleteItem(@PathVariable("itemId") Long itemId){
+        itemService.deleteItemById(itemId);
+        return "redirect:/admin/items";
 
     }
 
