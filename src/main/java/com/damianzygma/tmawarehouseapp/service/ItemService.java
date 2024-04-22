@@ -10,4 +10,8 @@ public interface ItemService {
 
     void createItem(ItemDto itemDto);
 
+    ItemDto findItemById(Long id);
+
+    void updateItem(ItemDto itemDto);
+
 }

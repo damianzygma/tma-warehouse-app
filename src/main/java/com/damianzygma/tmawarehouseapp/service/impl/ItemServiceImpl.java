@@ -32,4 +32,16 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.save(item);
 
     }
+
+    @Override
+    public ItemDto findItemById(Long id) {
+        Item item = itemRepository.findById(id).get();
+        return ItemMapper.mapToItemDto(item);
+    }
+
+    @Override
+    public void updateItem(ItemDto itemDto) {
+        Item item = ItemMapper.mapToItem(itemDto);
+        itemRepository.save(item);
+    }
 }

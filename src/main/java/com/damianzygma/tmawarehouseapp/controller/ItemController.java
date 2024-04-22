@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -39,10 +40,10 @@ public class ItemController {
     @GetMapping("admin/items/newitem")
     public String newItemForm(Model model){
         ItemDto itemDto = new ItemDto();
-        List<Unit> units = unitService.findAllUnits();
-        List<ItemGroup> itemGroups = itemGroupService.findAllItemGroups();
         model.addAttribute("item", itemDto);
+        List<Unit> units = unitService.findAllUnits();
         model.addAttribute("units", units);
+        List<ItemGroup> itemGroups = itemGroupService.findAllItemGroups();
         model.addAttribute("itemGroups", itemGroups);
         return "admin/create_item";
     }
@@ -52,6 +53,31 @@ public class ItemController {
         itemService.createItem(itemDto);
         return "redirect:/admin/items";
     }
+
+
+    @GetMapping("/admin/items/{itemId}/edit")
+    public String editItem(@PathVariable("itemId") Long itemId,
+                           Model model){
+        ItemDto itemDto = itemService.findItemById(itemId);
+        model.addAttribute("item", itemDto);
+        List<Unit> units = unitService.findAllUnits();
+        model.addAttribute("units", units);
+        List<ItemGroup> itemGroups = itemGroupService.findAllItemGroups();
+        model.addAttribute("itemGroups", itemGroups);
+        return "admin/edit_item";
+    }
+
+
+    @PostMapping("admin/items/{itemId}")
+    public String updateItem(@PathVariable("itemId") Long itemId,
+                             @ModelAttribute("item") ItemDto item,
+                             Model model){
+        item.setId(itemId);
+        itemService.updateItem(item);
+        return "redirect:/admin/items";
+
+    }
+
 
 
 }
