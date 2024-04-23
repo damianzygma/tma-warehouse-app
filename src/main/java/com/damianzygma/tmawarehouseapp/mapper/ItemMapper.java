@@ -3,6 +3,8 @@ package com.damianzygma.tmawarehouseapp.mapper;
 import com.damianzygma.tmawarehouseapp.dto.ItemDto;
 import com.damianzygma.tmawarehouseapp.entity.Item;
 
+import java.util.stream.Collectors;
+
 public class ItemMapper {
 
     // map Item entity to ItemDto
@@ -17,6 +19,9 @@ public class ItemMapper {
                 .status(item.getStatus())
                 .storage(item.getStorage())
                 .contact(item.getContact())
+                .requests(item.getRequests().stream()
+                        .map((request) -> RequestMapper.mapToRequestDto(request))
+                                .collect(Collectors.toSet()))
                 .build();
     }
 

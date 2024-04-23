@@ -10,9 +10,4 @@ public interface UnitRepository extends JpaRepository<Unit,Long> {
 
     Unit findByName(String name);
 
-//    Optional<Unit> findById(Long id);
-
-//    @Query(value = "SELECT * FROM units", nativeQuery = true)
-//    Optional<Unit> findAllUnits();
-
 }

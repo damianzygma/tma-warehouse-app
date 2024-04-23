@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -23,6 +26,8 @@ public class ItemDto {
     private String status;
     private String storage;
     private String contact;
+    private Set<RequestDto> requests;
+
 
 
 }

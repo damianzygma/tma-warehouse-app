@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -43,7 +45,7 @@ public class Item {
     private String contact;
 
     @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE)
-    private List<Request> requests = new ArrayList<>();
+    private Set<Request> requests = new HashSet<>();
 
 
 }

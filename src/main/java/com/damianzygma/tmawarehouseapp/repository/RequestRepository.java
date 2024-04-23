@@ -11,11 +11,6 @@ public interface RequestRepository extends JpaRepository<Request,Long> {
     @Query(value = "SELECT requests.id, requests.employee_id, requests.item_id, items.unit_id, requests.quantity, items.price, requests.status_id, requests.comment\n" +
             "FROM requests\n" +
             "INNER JOIN items ON requests.item_id = items.id", nativeQuery = true)
-
-
-//    @Query(value = "SELECT *\n" +
-//            "FROM requests\n" +
-//            "INNER JOIN items ON requests.item_id = items.id", nativeQuery = true)
     Optional<Request> findAllRequest();
 
 }

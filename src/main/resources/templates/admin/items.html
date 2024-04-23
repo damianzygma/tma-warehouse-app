@@ -46,6 +46,7 @@
             <td th:text="${item.storage}">Warsaw</td>
             <td th:text="${item.contact}">Jan Kowalski</td>
             <td>
+                <a th:href="@{/admin/items/{itemId}/order(itemId=${item.id})}" class="btn btn-info">Order</a>
                 <a th:href="@{/admin/items/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>
                 <a th:href="@{/admin/items/{itemId}/delete(itemId=${item.id})}" class="btn btn-danger">Remove</a>
             </td>

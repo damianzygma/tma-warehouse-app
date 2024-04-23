@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<!--header - start-->
+<div th:replace="~{admin/header :: header}"></div>
+<!--header - end-->
+
+<body>
+
+<!--navbar - start-->
+<div th:replace="~{admin/header :: navbar}"></div>
+<!--navbar - end-->
+
+<br /><br />
+
+<div class="container">
+    <div class="row col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center"> Create Order </h2>
+            </div>
+            <div class="card-body">
+                <form role="form" method="post" th:action="@{/admin/items/{itemId}/order(itemId=${item.id})}" th:object="${request}">
+
+                    <div class="mb-3">
+                        <label class="form-label"> Item Name </label>
+                        <p th:text="${item.name}">Chair</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Unit of measurment </label>
+                        <p th:text="${item.unit.name}">pcs</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Quantity </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="quantity"
+                                placeholder="Enter quantity"
+                                name="quantity"
+                                th:field="*{quantity}"
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Price without VAT (UAH) </label>
+                        <p th:text="${item.price}">pcs</p>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<br /><br /><br /><br /><br /><br />
+<!--footer - start-->
+<div th:replace="~{admin/footer :: footer}"></div>
+<!--footer - end-->
+
+</body>
+</html>
