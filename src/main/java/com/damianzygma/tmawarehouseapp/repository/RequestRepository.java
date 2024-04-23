@@ -1,5 +1,7 @@
 package com.damianzygma.tmawarehouseapp.repository;
 
+import com.damianzygma.tmawarehouseapp.dto.RequestDto;
+import com.damianzygma.tmawarehouseapp.entity.Item;
 import com.damianzygma.tmawarehouseapp.entity.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,5 +14,9 @@ public interface RequestRepository extends JpaRepository<Request,Long> {
             "FROM requests\n" +
             "INNER JOIN items ON requests.item_id = items.id", nativeQuery = true)
     Optional<Request> findAllRequest();
+
+    Optional<Request> findById(Long id);
+
+
 
 }

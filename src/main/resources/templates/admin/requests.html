@@ -46,8 +46,8 @@
             <td th:text="${request.status.name}">New</td>
             <td th:text="${request.comment}">Empty storage</td>
             <td>
-                <a th:href="@{/admin/home/{requestId}/confirm(requestId=${request.id})}" class="btn btn-primary">Confirm</a>
-                <a th:href="@{/admin/home/{requestId}/reject(requestId=${request.id})}" class="btn btn-danger">Reject</a>
+                <a th:href="@{/admin/requests/{requestId}/confirm(requestId=${request.id})}" class="btn btn-primary">Confirm</a>
+                <a th:href="@{/admin/requests/{requestId}/reject(requestId=${request.id})}" class="btn btn-danger">Reject</a>
             </td>
         </tr>
         </tbody>

@@ -2,6 +2,7 @@ package com.damianzygma.tmawarehouseapp.controller;
 
 import com.damianzygma.tmawarehouseapp.dto.ItemDto;
 import com.damianzygma.tmawarehouseapp.dto.RequestDto;
+import com.damianzygma.tmawarehouseapp.entity.Request;
 import com.damianzygma.tmawarehouseapp.service.ItemService;
 import com.damianzygma.tmawarehouseapp.service.RequestService;
 import org.springframework.stereotype.Controller;
@@ -49,6 +50,26 @@ public class RequestController {
         requestService.createRequest(itemId, requestDto);
         return "redirect:/admin/requests";
 
+    }
+    @GetMapping("admin/requests/{requestId}/reject")
+    public String rejectRequestForm(@PathVariable("requestId") Long requestId,
+                                Model model){
+        RequestDto requestDto = requestService.findRequestById(requestId);
+        model.addAttribute("request", requestDto);
+        return "admin/reject_request";
+    }
+
+    @PostMapping("admin/requests")
+    public String rejectRequest(@ModelAttribute("request") RequestDto requestDto){
+        requestService.rejectRequest(requestDto);
+        return "redirect:/admin/requests";
+    }
+
+    @GetMapping("admin/requests/{requestId}/confirm")
+    public String confirmRequest(@PathVariable("requestId") Long requestId){
+        RequestDto requestDto = requestService.findRequestById(requestId);
+        requestService.confirmRequest(requestDto);
+        return "redirect:/admin/requests";
     }
 
 

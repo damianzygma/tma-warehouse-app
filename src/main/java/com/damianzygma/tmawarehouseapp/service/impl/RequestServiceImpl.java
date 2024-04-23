@@ -63,4 +63,32 @@ public class RequestServiceImpl implements RequestService {
         requestRepository.save(request);
     }
 
+    @Override
+    public void rejectRequest(RequestDto requestDto) {
+        Request request = RequestMapper.mapToRequest(requestDto);
+        String statusName = "Rejected";
+        Status status = statusRepository.findStatusByName(statusName);
+        request.setStatus(status);
+        requestRepository.save(request);
+    }
+
+    @Override
+    public void confirmRequest(RequestDto requestDto) {
+        Request request = RequestMapper.mapToRequest(requestDto);
+        String statusName = "Approved";
+        Status status = statusRepository.findStatusByName(statusName);
+        request.setStatus(status);
+        request.setComment(null);
+        requestRepository.save(request);
+    }
+
+    @Override
+    public RequestDto findRequestById(Long requestId) {
+        Request request = requestRepository.findById(requestId).get();
+        return RequestMapper.mapToRequestDto(request);
+    }
+
+
+
+
 }
