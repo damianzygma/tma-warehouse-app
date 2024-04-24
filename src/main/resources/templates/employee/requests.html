@@ -4,13 +4,13 @@
 >
 
 <!--header - start-->
-<div th:replace="~{admin/header :: header}"></div>
+<div th:replace="~{employee/header :: header}"></div>
 <!--header - end-->
 
 <body>
 
 <!--navbar - start-->
-<div th:replace="~{admin/header :: navbar}"></div>
+<div th:replace="~{employee/header :: navbar}"></div>
 <!--navbar - end-->
 
 <br />
@@ -31,8 +31,8 @@
         <th style="width:10%">Quantity</th>
         <th style="width:10%">Price without VAT (UAH)</th>
         <th style="width:10%">Status</th>
-        <th style="width:15%">Comment</th>
-        <th style="width:20%">Actions</th>
+        <th style="width:35%">Comment</th>
+
         </thead>
         <tbody>
         <tr th:each = "request : ${requests}">
@@ -45,17 +45,13 @@
             <td th:text="${request.item.price}">534</td>
             <td th:text="${request.status.name}">New</td>
             <td th:text="${request.comment}">Empty storage</td>
-            <td>
-                <a th:href="@{/admin/requests/{requestId}/confirm(requestId=${request.id})}" class="btn btn-primary">Confirm</a>
-                <a th:href="@{/admin/requests/{requestId}/reject(requestId=${request.id})}" class="btn btn-danger">Reject</a>
-            </td>
         </tr>
         </tbody>
     </table>
 </div>
 <br /><br /><br /><br /><br /><br />
 <!--footer - start-->
-<div th:replace="~{admin/footer :: footer}"></div>
+<div th:replace="~{employee/footer :: footer}"></div>
 <!--footer - end-->
 
 

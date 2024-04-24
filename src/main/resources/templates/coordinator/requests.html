@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+
+<!--header - start-->
+<div th:replace="~{coordinator/header :: header}"></div>
+<!--header - end-->
+
+<body>
+
+<!--navbar - start-->
+<div th:replace="~{coordinator/header :: navbar}"></div>
+<!--navbar - end-->
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <h1>List of Purchase Requests</h1>
+    </div>
+
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+        <th style="width:5%">Id</th>
+        <th style="width:10%">Employee name</th>
+        <th style="width:5%">Item id</th>
+        <th style="width:10%">Item name</th>
+        <th style="width:5%">Unit of measurment</th>
+        <th style="width:10%">Quantity</th>
+        <th style="width:10%">Price without VAT (UAH)</th>
+        <th style="width:10%">Status</th>
+        <th style="width:15%">Comment</th>
+        <th style="width:20%">Actions</th>
+        </thead>
+        <tbody>
+        <tr th:each = "request : ${requests}">
+            <td th:text="${request.id}">1</td>
+            <td th:text="${request.employee.name}">Jan Kowalski</td>
+            <td th:text="${request.item.id}">1</td>
+            <td th:text="${request.item.name}">T-shirt</td>
+            <td th:text="${request.item.unit.name}">pcs</td>
+            <td th:text="${request.quantity}">14</td>
+            <td th:text="${request.item.price}">534</td>
+            <td th:text="${request.status.name}">New</td>
+            <td th:text="${request.comment}">Empty storage</td>
+            <td>
+                <a th:href="@{/coordinator/requests/{requestId}/confirm(requestId=${request.id})}" class="btn btn-primary">Confirm</a>
+                <a th:href="@{/coordinator/requests/{requestId}/reject(requestId=${request.id})}" class="btn btn-danger">Reject</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br /><br /><br /><br /><br /><br />
+<!--footer - start-->
+<div th:replace="~{coordinator/footer :: footer}"></div>
+<!--footer - end-->
+
+
+</body>
+
+</html>

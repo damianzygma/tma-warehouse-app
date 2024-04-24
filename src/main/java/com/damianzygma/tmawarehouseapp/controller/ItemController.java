@@ -30,14 +30,21 @@ public class ItemController {
         this.itemGroupService = itemGroupService;
     }
 
-    @GetMapping("/admin/items")
+    @GetMapping("/coordinator/items")
     public String items(Model model){
         List<ItemDto> items = itemService.findAllItems();
         model.addAttribute("items", items);
-        return "/admin/items";
+        return "/coordinator/items";
     }
 
-    @GetMapping("admin/items/newitem")
+    @GetMapping("/employee/items")
+    public String itemsEmployee(Model model){
+        List<ItemDto> items = itemService.findAllItems();
+        model.addAttribute("items", items);
+        return "/employee/items";
+    }
+
+    @GetMapping("coordinator/items/newitem")
     public String newItemForm(Model model){
         ItemDto itemDto = new ItemDto();
         model.addAttribute("item", itemDto);
@@ -45,17 +52,17 @@ public class ItemController {
         model.addAttribute("units", units);
         List<ItemGroup> itemGroups = itemGroupService.findAllItemGroups();
         model.addAttribute("itemGroups", itemGroups);
-        return "admin/create_item";
+        return "coordinator/create_item";
     }
 
-    @PostMapping("/admin/items")
+    @PostMapping("/coordinator/items")
     public String createItem(@ModelAttribute ItemDto itemDto){
         itemService.createItem(itemDto);
-        return "redirect:/admin/items";
+        return "redirect:/coordinator/items";
     }
 
 
-    @GetMapping("/admin/items/{itemId}/edit")
+    @GetMapping("/coordinator/items/{itemId}/edit")
     public String editItem(@PathVariable("itemId") Long itemId,
                            Model model){
         ItemDto itemDto = itemService.findItemById(itemId);
@@ -64,24 +71,24 @@ public class ItemController {
         model.addAttribute("units", units);
         List<ItemGroup> itemGroups = itemGroupService.findAllItemGroups();
         model.addAttribute("itemGroups", itemGroups);
-        return "admin/edit_item";
+        return "coordinator/edit_item";
     }
 
 
-    @PostMapping("admin/items/{itemId}")
+    @PostMapping("coordinator/items/{itemId}")
     public String updateItem(@PathVariable("itemId") Long itemId,
                              @ModelAttribute("item") ItemDto item,
                              Model model){
         item.setId(itemId);
         itemService.updateItem(item);
-        return "redirect:/admin/items";
+        return "redirect:/coordinator/items";
     }
 
 
-    @GetMapping("/admin/items/{itemId}/delete")
+    @GetMapping("/coordinator/items/{itemId}/delete")
     public String deleteItem(@PathVariable("itemId") Long itemId){
         itemService.deleteItemById(itemId);
-        return "redirect:/admin/items";
+        return "redirect:/coordinator/items";
 
     }
 

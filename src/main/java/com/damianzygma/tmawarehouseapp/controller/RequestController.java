@@ -27,49 +27,57 @@ public class RequestController {
         this.itemService = itemService;
     }
 
-    @GetMapping("/admin/requests")
+    @GetMapping("/coordinator/requests")
     public String requests(Model model){
         List<RequestDto> requests = requestService.findAllRequest();
         model.addAttribute("requests", requests);
-        return "/admin/requests";
+        return "/coordinator/requests";
     }
 
-    @GetMapping("admin/items/{itemId}/order")
-    public String newRequestForm(@PathVariable("itemId") Long itemId,
-                             Model model){
+    @GetMapping("/employee/requests")
+    public String requestsEmployee(Model model){
+        List<RequestDto> requests = requestService.findAllRequest();
+        model.addAttribute("requests", requests);
+        return "/employee/requests";
+    }
+
+
+    @GetMapping("employee/items/{itemId}/order")
+    public String newRequestFormEmployee(@PathVariable("itemId") Long itemId,
+                                 Model model){
         ItemDto itemDto = itemService.findItemById(itemId);
         model.addAttribute("item", itemDto);
         RequestDto requestDto = new RequestDto();
         model.addAttribute("request", requestDto);
-        return "admin/create_request";
+        return "employee/create_request";
     }
 
-    @PostMapping("/admin/items/{itemId}/order")
-    public String createRequest(@PathVariable("itemId") Long itemId,
+    @PostMapping("/employee/items/{itemId}/order")
+    public String createRequestEmployee(@PathVariable("itemId") Long itemId,
                                 @ModelAttribute("request") RequestDto requestDto){
         requestService.createRequest(itemId, requestDto);
-        return "redirect:/admin/requests";
-
+        return "redirect:/employee/items";
     }
-    @GetMapping("admin/requests/{requestId}/reject")
+
+    @GetMapping("coordinator/requests/{requestId}/reject")
     public String rejectRequestForm(@PathVariable("requestId") Long requestId,
                                 Model model){
         RequestDto requestDto = requestService.findRequestById(requestId);
         model.addAttribute("request", requestDto);
-        return "admin/reject_request";
+        return "coordinator/reject_request";
     }
 
-    @PostMapping("admin/requests")
+    @PostMapping("coordinator/requests")
     public String rejectRequest(@ModelAttribute("request") RequestDto requestDto){
         requestService.rejectRequest(requestDto);
-        return "redirect:/admin/requests";
+        return "redirect:/coordinator/requests";
     }
 
-    @GetMapping("admin/requests/{requestId}/confirm")
+    @GetMapping("coordinator/requests/{requestId}/confirm")
     public String confirmRequest(@PathVariable("requestId") Long requestId){
         RequestDto requestDto = requestService.findRequestById(requestId);
         requestService.confirmRequest(requestDto);
-        return "redirect:/admin/requests";
+        return "redirect:/coordinator/requests";
     }
 
 

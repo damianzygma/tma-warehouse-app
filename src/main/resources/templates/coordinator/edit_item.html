@@ -3,13 +3,13 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <!--header - start-->
-<div th:replace="~{admin/header :: header}"></div>
+<div th:replace="~{coordinator/header :: header}"></div>
 <!--header - end-->
 
 <body>
 
 <!--navbar - start-->
-<div th:replace="~{admin/header :: navbar}"></div>
+<div th:replace="~{coordinator/header :: navbar}"></div>
 <!--navbar - end-->
 
 <br /><br />
@@ -21,7 +21,7 @@
         <h2 class="text-center"> Update Item </h2>
       </div>
       <div class="card-body">
-        <form role="form" method="post" th:action="@{/admin/items/{itemId}(itemId=${item.id})}" th:object="${item}">
+        <form role="form" method="post" th:action="@{/coordinator/items/{itemId}(itemId=${item.id})}" th:object="${item}">
           <div class="mb-3">
             <label class="form-label"> Item Name </label>
             <input
@@ -123,7 +123,7 @@
 </div>
 <br /><br /><br /><br /><br /><br />
 <!--footer - start-->
-<div th:replace="~{admin/footer :: footer}"></div>
+<div th:replace="~{coordinator/footer :: footer}"></div>
 <!--footer - end-->
 
 </body>

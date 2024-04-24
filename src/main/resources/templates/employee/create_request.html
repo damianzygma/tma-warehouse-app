@@ -3,13 +3,13 @@
       xmlns:th="http://www.thymeleaf.org"
 >
 <!--header - start-->
-<div th:replace="~{admin/header :: header}"></div>
+<div th:replace="~{employee/header :: header}"></div>
 <!--header - end-->
 
 <body>
 
 <!--navbar - start-->
-<div th:replace="~{admin/header :: navbar}"></div>
+<div th:replace="~{employee/header :: navbar}"></div>
 <!--navbar - end-->
 
 <br /><br />
@@ -21,7 +21,7 @@
                 <h2 class="text-center"> Create Order </h2>
             </div>
             <div class="card-body">
-                <form role="form" method="post" th:action="@{/admin/items/{itemId}/order(itemId=${item.id})}" th:object="${request}">
+                <form role="form" method="post" th:action="@{/employee/items/{itemId}/order(itemId=${item.id})}" th:object="${request}">
 
                     <div class="mb-3">
                         <label class="form-label"> Item Name </label>
@@ -53,7 +53,7 @@
 
 
                     <button type="submit" class="btn btn-primary"> Submit </button>
-                    <a th:href="@{/admin/requests}" class="btn btn-danger">Cancel</a>
+                    <a th:href="@{/employee/requests}" class="btn btn-danger">Cancel</a>
                 </form>
 
             </div>
@@ -63,7 +63,7 @@
 </div>
 <br /><br /><br /><br /><br /><br />
 <!--footer - start-->
-<div th:replace="~{admin/footer :: footer}"></div>
+<div th:replace="~{employee/footer :: footer}"></div>
 <!--footer - end-->
 
 </body>

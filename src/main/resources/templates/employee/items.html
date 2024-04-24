@@ -4,13 +4,13 @@
 >
 
 <!--header - start-->
-<div th:replace="~{admin/header :: header}"></div>
+<div th:replace="~{employee/header :: header}"></div>
 <!--header - end-->
 
 <body>
 
 <!--navbar - start-->
-<div th:replace="~{admin/header :: navbar}"></div>
+<div th:replace="~{employee/header :: navbar}"></div>
 <!--navbar - end-->
 
 <br />
@@ -46,9 +46,7 @@
             <td th:text="${item.storage}">Warsaw</td>
             <td th:text="${item.contact}">Jan Kowalski</td>
             <td>
-                <a th:href="@{/admin/items/{itemId}/order(itemId=${item.id})}" class="btn btn-info">Order</a>
-                <a th:href="@{/admin/items/{itemId}/edit(itemId=${item.id})}" class="btn btn-primary">Update</a>
-                <a th:href="@{/admin/items/{itemId}/delete(itemId=${item.id})}" class="btn btn-danger">Remove</a>
+                <a th:href="@{/employee/items/{itemId}/order(itemId=${item.id})}" class="btn btn-info">Order</a>
             </td>
         </tr>
         </tbody>
@@ -56,7 +54,7 @@
 </div>
 <br /><br /><br /><br /><br /><br />
 <!--footer - start-->
-<div th:replace="~{admin/footer :: footer}"></div>
+<div th:replace="~{employee/footer :: footer}"></div>
 <!--footer - end-->
 
 
