@@ -24,6 +24,18 @@
                 <form role="form" method="post" th:action="@{/employee/items/{itemId}/order(itemId=${item.id})}" th:object="${request}">
 
                     <div class="mb-3">
+                        <label class="form-label"> Employee name </label>
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="employeeName"
+                                placeholder="Enter quantity"
+                                name="employeeName"
+                                th:field="*{employeeName}"
+                        />
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label"> Item Name </label>
                         <p th:text="${item.name}">Chair</p>
                     </div>

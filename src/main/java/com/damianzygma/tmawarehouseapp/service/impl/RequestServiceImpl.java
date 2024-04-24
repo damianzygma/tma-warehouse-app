@@ -1,14 +1,10 @@
 package com.damianzygma.tmawarehouseapp.service.impl;
 
-import com.damianzygma.tmawarehouseapp.dto.ItemDto;
 import com.damianzygma.tmawarehouseapp.dto.RequestDto;
-import com.damianzygma.tmawarehouseapp.entity.Employee;
 import com.damianzygma.tmawarehouseapp.entity.Item;
 import com.damianzygma.tmawarehouseapp.entity.Request;
 import com.damianzygma.tmawarehouseapp.entity.Status;
-import com.damianzygma.tmawarehouseapp.mapper.ItemMapper;
 import com.damianzygma.tmawarehouseapp.mapper.RequestMapper;
-import com.damianzygma.tmawarehouseapp.repository.EmployeeRepository;
 import com.damianzygma.tmawarehouseapp.repository.ItemRepository;
 import com.damianzygma.tmawarehouseapp.repository.RequestRepository;
 import com.damianzygma.tmawarehouseapp.repository.StatusRepository;
@@ -25,17 +21,13 @@ public class RequestServiceImpl implements RequestService {
 
     private StatusRepository statusRepository;
 
-    private EmployeeRepository employeeRepository;
-
     private ItemRepository itemRepository;
 
     public RequestServiceImpl(RequestRepository requestRepository,
                               StatusRepository statusRepository,
-                              EmployeeRepository employeeRepository,
                               ItemRepository itemRepository) {
         this.requestRepository = requestRepository;
         this.statusRepository = statusRepository;
-        this.employeeRepository = employeeRepository;
         this.itemRepository = itemRepository;
     }
 
@@ -56,9 +48,6 @@ public class RequestServiceImpl implements RequestService {
         String statusName = "New";
         Status status = statusRepository.findStatusByName(statusName);
         request.setStatus(status);
-        String email = "jan.kowalski@gmail.com";
-        Employee employee = employeeRepository.findByEmail(email);
-        request.setEmployee(employee);
 
         requestRepository.save(request);
     }

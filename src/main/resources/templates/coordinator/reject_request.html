@@ -24,7 +24,7 @@
                 <form role="form" method="post" th:action="@{/coordinator/requests}" th:object="${request}">
                     <input type="hidden" th:field="${request.id}">
                     <input type="hidden" th:field="${request.item.id}">
-                    <input type="hidden" th:field="${request.employee.id}">
+                    <input type="hidden" th:field="${request.employeeName}">
                     <input type="hidden" th:field="${request.quantity}">
                     <input type="hidden" th:field="${request.status.id}">
                     <div class="mb-3">

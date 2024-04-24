@@ -1,9 +1,7 @@
 package com.damianzygma.tmawarehouseapp.dto;
 
-import com.damianzygma.tmawarehouseapp.entity.Employee;
 import com.damianzygma.tmawarehouseapp.entity.Item;
 import com.damianzygma.tmawarehouseapp.entity.Status;
-import com.damianzygma.tmawarehouseapp.entity.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class RequestDto {
 
     private Long id;
-    private Employee employee;
+    private String employeeName;
     private Item item;
     private Long quantity;
     private Status status;

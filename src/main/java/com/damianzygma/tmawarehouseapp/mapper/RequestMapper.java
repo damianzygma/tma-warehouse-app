@@ -8,7 +8,7 @@ public class RequestMapper {
     public static RequestDto mapToRequestDto (Request request) {
         return RequestDto.builder()
                 .id(request.getId())
-                .employee(request.getEmployee())
+                .employeeName(request.getEmployeeName())
                 .item(request.getItem())
                 .quantity(request.getQuantity())
                 .status(request.getStatus())
@@ -19,7 +19,7 @@ public class RequestMapper {
     public static Request mapToRequest (RequestDto requestDto) {
         return Request.builder()
                 .id(requestDto.getId())
-                .employee(requestDto.getEmployee())
+                .employeeName(requestDto.getEmployeeName())
                 .item(requestDto.getItem())
                 .quantity(requestDto.getQuantity())
                 .status(requestDto.getStatus())

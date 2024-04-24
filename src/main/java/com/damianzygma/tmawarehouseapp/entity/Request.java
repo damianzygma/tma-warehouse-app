@@ -16,9 +16,7 @@ public class Request {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private String employeeName;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
