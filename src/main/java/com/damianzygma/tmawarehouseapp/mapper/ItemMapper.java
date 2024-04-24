@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 public class ItemMapper {
 
-    // map Item entity to ItemDto
     public static ItemDto mapToItemDto(Item item){
         return ItemDto.builder()
                 .id(item.getId())
@@ -25,7 +24,6 @@ public class ItemMapper {
                 .build();
     }
 
-    // map ItemDto to Item entity
     public static Item mapToItem(ItemDto itemDto){
         return Item.builder()
                 .id(itemDto.getId())

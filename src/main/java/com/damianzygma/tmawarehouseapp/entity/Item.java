@@ -21,7 +21,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String name;
 
     @ManyToOne
@@ -32,10 +31,8 @@ public class Item {
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
-    @Column(nullable = false)
     private Long quantity;
 
-    @Column(nullable = false)
     private Double price;
 
     private String status;

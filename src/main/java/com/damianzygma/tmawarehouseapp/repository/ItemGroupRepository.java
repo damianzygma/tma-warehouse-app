@@ -5,6 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ItemGroupRepository extends JpaRepository<ItemGroup,Long> {
 
-    ItemGroup findByName(String name);
 
 }
