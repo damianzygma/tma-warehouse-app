@@ -75,6 +75,13 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public void confirmRequest(RequestDto requestDto) {
         Request request = RequestMapper.mapToRequest(requestDto);
+
+        Item itemFromRequest = request.getItem();
+        Long itemFromRequestQuantity = itemFromRequest.getQuantity();
+        Long requestQuantity = request.getQuantity();
+        Long itemQuantityAfterConfirm = itemFromRequestQuantity - requestQuantity;
+        itemFromRequest.setQuantity(itemQuantityAfterConfirm);
+
         String statusName = "Approved";
         Status status = statusRepository.findStatusByName(statusName);
         request.setStatus(status);
