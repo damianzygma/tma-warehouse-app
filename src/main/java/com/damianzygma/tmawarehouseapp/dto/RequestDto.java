@@ -1,7 +1,7 @@
 package com.damianzygma.tmawarehouseapp.dto;
 
 import com.damianzygma.tmawarehouseapp.entity.Item;
-import com.damianzygma.tmawarehouseapp.entity.Status;
+import com.damianzygma.tmawarehouseapp.util.RequestStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class RequestDto {
     private String employeeName;
     private Item item;
     private Long quantity;
-    private Status status;
+    private RequestStatus requestStatus;
     private String comment;
 
 }

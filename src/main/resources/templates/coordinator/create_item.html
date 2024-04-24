@@ -23,7 +23,7 @@
             <div class="card-body">
                 <form role="form" method="post" th:action="@{/coordinator/items}" th:object="${item}">
                     <div class="mb-3">
-                        <label class="form-label"> Item Name </label>
+                        <label class="form-label fw-bold"> Item Name </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Item Group </label>
+                        <label class="form-label fw-bold"> Item Group </label>
                         <select class="form-select" th:field="*{itemGroup}">
                             <option value="0">Select item group</option>
                             <option th:each="itemGroup : ${itemGroups}" th:value="${itemGroup.id}" th:text="${itemGroup.id}+' : '+${itemGroup.name}"></option>
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Unit of measurment </label>
+                        <label class="form-label fw-bold"> Unit of measurement </label>
                         <select class="form-select" th:field="*{unit}">
                             <option value="0">Select unit</option>
                             <option th:each="unit : ${units}" th:value="${unit.id}" th:text="${unit.id}+' : '+${unit.name}"></option>
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Quantity </label>
+                        <label class="form-label fw-bold"> Quantity </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Price without VAT (UAH) </label>
+                        <label class="form-label fw-bold"> Price without VAT (UAH) </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Status </label>
+                        <label class="form-label fw-bold"> Status </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -87,7 +87,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Storage Location </label>
+                        <label class="form-label fw-bold"> Storage Location </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Contact person </label>
+                        <label class="form-label fw-bold"> Contact person </label>
                         <textarea
                                 type="text"
                                 class="form-control"

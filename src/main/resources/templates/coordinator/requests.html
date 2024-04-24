@@ -27,7 +27,7 @@
         <th style="width:10%">Employee name</th>
         <th style="width:5%">Item id</th>
         <th style="width:10%">Item name</th>
-        <th style="width:5%">Unit of measurment</th>
+        <th style="width:5%">Unit of measurement</th>
         <th style="width:10%">Quantity</th>
         <th style="width:10%">Price without VAT (UAH)</th>
         <th style="width:10%">Status</th>
@@ -43,7 +43,7 @@
             <td th:text="${request.item.unit.name}">pcs</td>
             <td th:text="${request.quantity}">14</td>
             <td th:text="${request.item.price}">534</td>
-            <td th:text="${request.status.name}">New</td>
+            <td th:text="${request.requestStatus}">New</td>
             <td th:text="${request.comment}">Empty storage</td>
             <td>
                 <a th:href="@{/coordinator/requests/{requestId}/confirm(requestId=${request.id})}" class="btn btn-primary">Confirm</a>

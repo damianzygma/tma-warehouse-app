@@ -1,5 +1,6 @@
 package com.damianzygma.tmawarehouseapp.entity;
 
+import com.damianzygma.tmawarehouseapp.util.RequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,9 +25,7 @@ public class Request {
 
     private Long quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private Status status;
+    private RequestStatus requestStatus;
 
     private String comment;
 

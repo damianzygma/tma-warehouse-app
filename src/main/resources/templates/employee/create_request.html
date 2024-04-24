@@ -24,7 +24,7 @@
                 <form role="form" method="post" th:action="@{/employee/items/{itemId}/order(itemId=${item.id})}" th:object="${request}">
 
                     <div class="mb-3">
-                        <label class="form-label"> Employee name </label>
+                        <label class="form-label fw-bold"> Employee name </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -36,17 +36,17 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Item Name </label>
+                        <label class="form-label fw-bold"> Item Name </label>
                         <p th:text="${item.name}">Chair</p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Unit of measurment </label>
+                        <label class="form-label fw-bold"> Unit of measurement </label>
                         <p th:text="${item.unit.name}">pcs</p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Quantity </label>
+                        <label class="form-label fw-bold"> Quantity </label>
                         <input
                                 type="text"
                                 class="form-control"
@@ -58,8 +58,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label"> Price without VAT (UAH) </label>
-                        <p th:text="${item.price}">pcs</p>
+                        <label class="form-label fw-bold"> Price without VAT (UAH) </label>
+                        <p th:text="${item.price}">1000</p>
                     </div>
 
 

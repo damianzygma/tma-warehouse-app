@@ -11,7 +11,7 @@ public class RequestMapper {
                 .employeeName(request.getEmployeeName())
                 .item(request.getItem())
                 .quantity(request.getQuantity())
-                .status(request.getStatus())
+                .requestStatus(request.getRequestStatus())
                 .comment(request.getComment())
                 .build();
     }
@@ -22,7 +22,7 @@ public class RequestMapper {
                 .employeeName(requestDto.getEmployeeName())
                 .item(requestDto.getItem())
                 .quantity(requestDto.getQuantity())
-                .status(requestDto.getStatus())
+                .requestStatus(requestDto.getRequestStatus())
                 .comment((requestDto.getComment()))
                 .build();
     }
